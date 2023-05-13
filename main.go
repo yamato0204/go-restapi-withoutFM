@@ -121,6 +121,6 @@ func main(){
 	http.HandleFunc("/songs", AllSongHandler)
 	//http.HandleFunc("/songs/", SingleSongHandler) この場合　pathは　/songs/1
 	http.Handle("/songs/", http.StripPrefix("/songs/", http.HandlerFunc(SingleSongHandler)))
-	//http.HandlerFunc(SingleSongHandler)により、/songs/を取り除き、　pathは１
+	//http.StripPrefix()により、/songs/を取り除き、　pathは１
 	http.ListenAndServe(":8080", nil)
 }
